@@ -8,6 +8,7 @@ class Airline < ApplicationRecord
     end
     # .round = el valor sera redondeado a 2 numeros Ej: 16.873 a 16.87 | to_f = vuelve flotante ej: 5 a 5.0
     def avg_score
+        return 0 unless reviews.count.positive?
         reviews.average(:score).round(2).to_f
     end
 end
