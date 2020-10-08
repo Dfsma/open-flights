@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
-    def index
+    def home
     end
-    
+  
+    def open_flights
+    end
 end

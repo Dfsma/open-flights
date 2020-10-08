@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
- 
+  devise_for :users
+  authenticated :user do
+    root "pages#open_flights", as: :authenticated_root
+  end
+  
   root 'pages#index'
 
   namespace :api do

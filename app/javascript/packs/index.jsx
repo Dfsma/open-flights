@@ -8,10 +8,12 @@ import App from '../components/App'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 document.addEventListener('DOMContentLoaded', () => {
+  const app = document.getElementById('open-flights')
+  app &&
   ReactDOM.render(
     <Router>
       <Route path="/" component={App}></Route>
     </Router>,
-    document.body.appendChild(document.createElement('div')),
+    app
   )
 })
