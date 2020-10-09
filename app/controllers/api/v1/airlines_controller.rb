@@ -1,7 +1,7 @@
 module Api
     module V1
         class AirlinesController < ApplicationController
-            before_action :authenticate_user!
+            before_action :authenticate_user!, only: [:create]
             protect_from_forgery with: :null_session
             def index
                 airlines = Airline.all

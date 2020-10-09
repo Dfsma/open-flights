@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
+ 
   authenticated :user do
     root "pages#open_flights", as: :authenticated_root
   end
   
-  root 'pages#index'
+  root 'pages#open_flights', only: [:show]
 
   namespace :api do
     namespace :v1 do
@@ -13,6 +14,9 @@ Rails.application.routes.draw do
     end
   end
 
-  get '*path', to: 'pages#index', via: :all
+  devise_scope :user do
+    get '*path', to: 'devise/sessions#new', via: :all
+  end
+ 
 
 end
